@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Verification</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #111827;
+    }
+    .header p {
+      margin: 4px 0 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 380px;
+      overflow: hidden;
+    }
+    .banner {
+      background-color: #e6f7ed;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid #d1fae5;
+    }
+    .check-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #059669;
+      color: #059669;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .banner-text h2 {
+      margin: 0;
+      color: #065f46;
+      font-size: 18px;
+    }
+    .banner-text p {
+      margin: 2px 0 0;
+      color: #047857;
+      font-size: 13px;
+    }
+    .details {
+      padding: 24px;
+    }
+    .field {
+      margin-bottom: 18px;
+    }
+    .field:last-child {
+      margin-bottom: 0;
+    }
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #6b7280;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111827;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      max-width: 340px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>SkillVerify Demo</h1>
+    <p>by PromptKar Learning Lab</p>
+  </div>
+
+  <div class="card">
+    <div class="banner">
+      <div class="check-icon">✓</div>
+      <div class="banner-text">
+        <h2>Certificate Verified</h2>
+        <p>This is a genuine demo certificate.</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="field">
+        <div class="label">Awarded To</div>
+        <div class="value" id="student-name">Loading...</div>
+      </div>
+      <div class="field">
+        <div class="label">Course</div>
+        <div class="value" id="course-name">Loading...</div>
+      </div>
+      <div class="field">
+        <div class="label">Issued On</div>
+        <div class="value" id="issue-date">Loading...</div>
+      </div>
+      <div class="field">
+        <div class="label">UDIN</div>
+        <div class="value" id="udin-num">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Verified via SkillVerify Demo — Learning Project for Dynamic QR Verification.
+  </div>
+
+  <script>
+    // URL se parameters padhne ka logic
+    const params = new URLSearchParams(window.location.search);
+    
+    document.getElementById('student-name').textContent = params.get('name') || 'Sample Student';
+    document.getElementById('course-name').textContent = params.get('course') || 'Web Design Basics';
+    document.getElementById('issue-date').textContent = params.get('date') || '18 November 2026';
+    document.getElementById('udin-num').textContent = params.get('udin') || '000000000000';
+  </script>
+
+</body>
+</html>
